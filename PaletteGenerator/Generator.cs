@@ -8,7 +8,7 @@ namespace PaletteGenerator;
 
 public class PaletteGenerator
 {
-    public static List<SKColor> Generate(string filePath)
+    public static List<SKColor> Generate(string filePath, int numClusters)
     {
         // Load the image file into an SKBitmap object
         SKBitmap bitmap;
@@ -21,7 +21,7 @@ public class PaletteGenerator
         var colors = ExtractColors(bitmap);
 
         // Cluster the colors using K-Means
-        var clusters = KMeansCluster(colors, 5); // 5 clusters
+        var clusters = KMeansCluster(colors, numClusters);
 
         // Select the most representative color from each cluster
         var dominantColors = new List<SKColor>();

@@ -38,8 +38,10 @@ namespace PaletteGenerator
             {
                 return;
             }
-            
-            var dominantColors = PaletteGenerator.Generate(filePath);
+
+            var numClusters = (int)ClustersNumericUpDown.Value;
+
+            var dominantColors = PaletteGenerator.Generate(filePath, numClusters);
 
             // Print the dominant colors to the console
             /*

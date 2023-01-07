@@ -2,9 +2,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="483"
         x:Class="PaletteGenerator.MainWindow"
-        Width="800" Height="450" WindowStartupLocation="CenterScreen"
+        Width="800" Height="483" WindowStartupLocation="CenterScreen"
         Title="PaletteGenerator">
   <Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="50*,50*">
     <DockPanel Grid.Row="0"
@@ -21,40 +21,50 @@
                Text=""
                Margin="6" />
     </DockPanel>
-    <Button Name="GenerateButton"
-            Content="Generate"
-            Click="GenerateButton_OnClick"
-            Margin="6"
-            HorizontalAlignment="Right"
-            Width="100"
-            HorizontalContentAlignment="Center"
-            Grid.Row="1"
-            Grid.Column="0"
-            Grid.ColumnSpan="2" />
-    <ItemsControl Name="ColorsItemsControl"
+    <DockPanel Grid.Row="1" Grid.Column="1">
+      <Button Name="GenerateButton"
+              Content="Generate"
+              HorizontalContentAlignment="Center"
+              Click="GenerateButton_OnClick"
+              Margin="6"
+              Width="100"
+              HorizontalAlignment="Right"
+              DockPanel.Dock="Right" />
+      <NumericUpDown Name="ClustersNumericUpDown"
+                     Value="8"
+                     Minimum="1"
+                     Margin="4"
+                     MinWidth="128"
+                     HorizontalAlignment="Right"
+                     DockPanel.Dock="Right" />
+    </DockPanel>
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                  VerticalScrollBarVisibility="Auto"
                   Margin="6"
                   Grid.Row="2"
                   Grid.Column="0">
-      <ItemsControl.ItemTemplate>
-        <DataTemplate>
-          <DockPanel>
-            <TextBlock Text="{Binding}"
-                       HorizontalAlignment="Center"
-                       DockPanel.Dock="Bottom" />
-            <Border BorderBrush="Black" 
-                    BorderThickness="1"
-                    Margin="4">
-              <Rectangle Fill="{Binding}" />
-            </Border>
-          </DockPanel>
-        </DataTemplate>
-      </ItemsControl.ItemTemplate>
-      <ItemsControl.ItemsPanel>
-        <ItemsPanelTemplate>
-          <WrapPanel ItemWidth="96" ItemHeight="96" />
-        </ItemsPanelTemplate>
-      </ItemsControl.ItemsPanel>
-    </ItemsControl>
+      <ItemsControl Name="ColorsItemsControl">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <DockPanel>
+              <TextBlock Text="{Binding}"
+                         HorizontalAlignment="Center"
+                         DockPanel.Dock="Bottom" />
+              <Border BorderBrush="Black" 
+                      BorderThickness="1"
+                      Margin="4">
+                <Rectangle Fill="{Binding}" />
+              </Border>
+            </DockPanel>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+            <WrapPanel ItemWidth="96" ItemHeight="96" />
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+      </ItemsControl>
+    </ScrollViewer>
     <Image Name="SourceImage"
            Stretch="Uniform"
            StretchDirection="Both"
