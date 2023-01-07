@@ -33,13 +33,25 @@ namespace PaletteGenerator
 
         private void GenerateButton_OnClick(object? sender, RoutedEventArgs e)
         {
+            try
+            {
+                Generate();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+        }
+
+        private void Generate()
+        {
             var filePath = FilePathTextBox.Text;
             if (string.IsNullOrWhiteSpace(filePath))
             {
                 return;
             }
 
-            var numClusters = (int)ClustersNumericUpDown.Value;
+            var numClusters = (int) ClustersNumericUpDown.Value;
 
             var dominantColors = PaletteGenerator.Generate(filePath, numClusters);
 
