@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -20,7 +21,8 @@ namespace PaletteGenerator
             {
                 Filters = new List<FileDialogFilter>()
                 {
-                    new FileDialogFilter() {Extensions = new List<string> {"*", "png"}, Name = "All Files (*.*)"}
+                    new FileDialogFilter() {Extensions = new List<string> {"png", "jpg", "jpeg", "*" }, Name = "Image Files (*.png,*.jpg,*.jpeg)"},
+                    new FileDialogFilter() {Extensions = new List<string> {"*" }, Name = "All Files (*.*)"}
                 },
                 AllowMultiple = false
             };
@@ -39,7 +41,7 @@ namespace PaletteGenerator
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception);
+                Debug.WriteLine(exception);
             }
         }
 
@@ -59,7 +61,7 @@ namespace PaletteGenerator
             /*
             foreach (var color in dominantColors)
             {
-                Console.WriteLine(color.ToString());
+                Debug.WriteLine(color.ToString());
             }
             */
 
