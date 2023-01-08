@@ -3,7 +3,11 @@
              xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
              Name="Palette Generator"
              x:Class="PaletteGenerator.App">
+  <Application.Resources>
+    <themes:BundledTheme BaseTheme="Light" PrimaryColor="Purple" SecondaryColor="Lime"/>
+  </Application.Resources>
   <Application.Styles>
-    <FluentTheme Mode="Light" />
+    <!-- <FluentTheme Mode="Light" /> -->
+    <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
   </Application.Styles>
 </Application>
