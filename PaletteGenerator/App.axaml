@@ -4,7 +4,7 @@
              Name="Palette Generator"
              x:Class="PaletteGenerator.App">
   <Application.Resources>
-    <themes:BundledTheme BaseTheme="Light" PrimaryColor="Purple" SecondaryColor="Lime"/>
+    <themes:BundledTheme BaseTheme="Light" PrimaryColor="Indigo" SecondaryColor="Lime"/>
   </Application.Resources>
   <Application.Styles>
     <!-- <FluentTheme Mode="Light" /> -->
