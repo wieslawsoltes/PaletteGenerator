@@ -2,13 +2,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+        mc:Ignorable="d" d:DesignWidth="806" d:DesignHeight="512"
         x:Class="PaletteGenerator.MainWindow"
-        MinWidth="800" MinHeight="500"
-        Width="800" Height="500" 
+        MinWidth="806" MinHeight="512"
+        Width="806" Height="512" 
         WindowStartupLocation="CenterScreen"
         Title="Palette Generator">
-  <Grid RowDefinitions="Auto,*,Auto" ColumnDefinitions="50*,50*">
+  <Grid RowDefinitions="Auto,*,Auto" ColumnDefinitions="50*,50*" Margin="6">
     <DockPanel Grid.Row="0"
                Grid.Column="0"
                Grid.ColumnSpan="2">
