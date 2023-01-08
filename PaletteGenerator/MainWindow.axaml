@@ -4,7 +4,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="483"
         x:Class="PaletteGenerator.MainWindow"
-        Width="800" Height="483" WindowStartupLocation="CenterScreen"
+        MinWidth="800" MinHeight="483"
+        Width="800" Height="483" 
+        WindowStartupLocation="CenterScreen"
         Title="PaletteGenerator">
   <Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="50*,50*">
     <DockPanel Grid.Row="0"
@@ -21,7 +23,7 @@
                Text=""
                Margin="6" />
     </DockPanel>
-    <DockPanel Grid.Row="1" Grid.Column="1">
+    <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
       <Button Name="GenerateButton"
               Content="Generate"
               HorizontalContentAlignment="Center"
@@ -37,6 +39,56 @@
                      MinWidth="128"
                      HorizontalAlignment="Right"
                      DockPanel.Dock="Right" />
+      <TextBlock Text="# Results:"
+                 Margin="6"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 DockPanel.Dock="Right" />
+      <TextBlock Text="Export:"
+              Margin="6"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Center"
+              DockPanel.Dock="Left" />
+      <Button Name="ExportActButton"
+              Content="Act"
+              HorizontalContentAlignment="Center"
+              Click="ExportActButton_OnClick"
+              Margin="6"
+              Width="60"
+              HorizontalAlignment="Left"
+              DockPanel.Dock="Left" />
+      <Button Name="ExportAseButton"
+              Content="Ase"
+              HorizontalContentAlignment="Center"
+              Click="ExportAseButton_OnClick"
+              Margin="6"
+              Width="60"
+              HorizontalAlignment="Left"
+              DockPanel.Dock="Left" />
+      <Button Name="ExportGplButton"
+              Content="Gpl"
+              HorizontalContentAlignment="Center"
+              Click="ExportGplButton_OnClick"
+              Margin="6"
+              Width="60"
+              HorizontalAlignment="Left"
+              DockPanel.Dock="Left" />
+      <Button Name="ExportHexButton"
+              Content="Hex"
+              HorizontalContentAlignment="Center"
+              Click="ExportHexButton_OnClick"
+              Margin="6"
+              Width="60"
+              HorizontalAlignment="Left"
+              DockPanel.Dock="Left" />
+      <Button Name="ExportCsvButton"
+              Content="Csv"
+              HorizontalContentAlignment="Center"
+              Click="ExportCsvButton_OnClick"
+              Margin="6"
+              Width="60"
+              HorizontalAlignment="Left"
+              DockPanel.Dock="Left" />
     </DockPanel>
     <ScrollViewer HorizontalScrollBarVisibility="Disabled"
                   VerticalScrollBarVisibility="Auto"
@@ -47,9 +99,10 @@
         <ItemsControl.ItemTemplate>
           <DataTemplate>
             <DockPanel>
-              <TextBlock Text="{Binding}"
-                         HorizontalAlignment="Center"
-                         DockPanel.Dock="Bottom" />
+              <TextBox Text="{Binding}"
+                       HorizontalAlignment="Center"
+                       BorderThickness="0"
+                       DockPanel.Dock="Bottom" />
               <Border BorderBrush="Black" 
                       BorderThickness="1"
                       Margin="4">
