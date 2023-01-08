@@ -39,7 +39,7 @@
                      MinWidth="128"
                      HorizontalAlignment="Right"
                      DockPanel.Dock="Right" />
-      <TextBlock Text="# Results:"
+      <TextBlock Text="Results:"
                  Margin="6"
                  HorizontalAlignment="Left"
                  VerticalAlignment="Center"
