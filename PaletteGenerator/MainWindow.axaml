@@ -7,7 +7,7 @@
         MinWidth="800" MinHeight="483"
         Width="800" Height="483" 
         WindowStartupLocation="CenterScreen"
-        Title="PaletteGenerator">
+        Title="Palette Generator">
   <Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="50*,50*">
     <DockPanel Grid.Row="0"
                Grid.Column="0"
@@ -113,7 +113,7 @@
         </ItemsControl.ItemTemplate>
         <ItemsControl.ItemsPanel>
           <ItemsPanelTemplate>
-            <WrapPanel ItemWidth="96" ItemHeight="96" />
+            <WrapPanel ItemWidth="96" ItemHeight="128" />
           </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
       </ItemsControl>
