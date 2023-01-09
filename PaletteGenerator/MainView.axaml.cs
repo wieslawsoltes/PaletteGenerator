@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
@@ -48,41 +49,37 @@ public partial class MainView : UserControl
         }
     }
 
-    private void GenerateButton_OnClick(object? sender, RoutedEventArgs e)
+    private async void GenerateButton_OnClick(object? sender, RoutedEventArgs e)
     {
         try
         {
-            Generate();
+            IsEnabled = false;
+
+            var filePath = FilePathTextBox.Text;
+            if (string.IsNullOrWhiteSpace(filePath))
+            {
+                return;
+            }
+
+            var numClusters = (int)ClustersNumericUpDown.Value;
+
+            await Task.Run(() =>
+            {
+                _dominantColors = PaletteGenerator.Generate(filePath, numClusters);
+            });
+
+            SourceImage.Source = new Bitmap(filePath);
+
+            ColorsItemsControl.Items = _dominantColors.Select(x => x.ToString());
         }
         catch (Exception exception)
         {
             Debug.WriteLine(exception);
         }
-    }
-
-    private void Generate()
-    {
-        var filePath = FilePathTextBox.Text;
-        if (string.IsNullOrWhiteSpace(filePath))
+        finally
         {
-            return;
+            IsEnabled = true;
         }
-
-        var numClusters = (int) ClustersNumericUpDown.Value;
-        
-        _dominantColors = PaletteGenerator.Generate(filePath, numClusters);
-
-        // Print the dominant colors to the console
-        /*
-        foreach (var color in dominantColors)
-        {
-            Debug.WriteLine(color.ToString());
-        }
-        */
-
-        SourceImage.Source = new Bitmap(filePath);
-
-        ColorsItemsControl.Items = _dominantColors.Select(x => x.ToString());
     }
 
     private async void ExportActButton_OnClick(object? sender, RoutedEventArgs e)
