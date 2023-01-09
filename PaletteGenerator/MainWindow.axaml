@@ -2,127 +2,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PaletteGenerator"
         mc:Ignorable="d" d:DesignWidth="806" d:DesignHeight="512"
         x:Class="PaletteGenerator.MainWindow"
         MinWidth="806" MinHeight="512"
         Width="806" Height="512" 
         WindowStartupLocation="CenterScreen"
         Title="Palette Generator">
-  <Grid RowDefinitions="Auto,*,Auto" ColumnDefinitions="50*,50*" Margin="6">
-    <DockPanel Grid.Row="0"
-               Grid.Column="0"
-               Grid.ColumnSpan="2">
-      <Button Name="BrowseButton"
-              Content="..."
-              Click="BrowseButton_OnClick"
-              Margin="6"
-              Width="100"
-              HorizontalContentAlignment="Center"
-              DockPanel.Dock="Right" />
-      <TextBox Name="FilePathTextBox"
-               Text=""
-               Margin="6" />
-    </DockPanel>
-    <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-      <Button Name="GenerateButton"
-              Content="Generate"
-              HorizontalContentAlignment="Center"
-              Click="GenerateButton_OnClick"
-              Margin="6"
-              Width="100"
-              HorizontalAlignment="Right"
-              DockPanel.Dock="Right" />
-      <NumericUpDown Name="ClustersNumericUpDown"
-                     Value="8"
-                     Minimum="1"
-                     Margin="4"
-                     MinWidth="128"
-                     HorizontalAlignment="Right"
-                     DockPanel.Dock="Right" />
-      <TextBlock Text="Results:"
-                 Margin="6"
-                 HorizontalAlignment="Left"
-                 VerticalAlignment="Center"
-                 DockPanel.Dock="Right" />
-      <TextBlock Text="Export:"
-              Margin="6"
-              HorizontalAlignment="Left"
-              VerticalAlignment="Center"
-              DockPanel.Dock="Left" />
-      <Button Name="ExportActButton"
-              Content="Act"
-              HorizontalContentAlignment="Center"
-              Click="ExportActButton_OnClick"
-              Margin="6"
-              Width="60"
-              HorizontalAlignment="Left"
-              DockPanel.Dock="Left" />
-      <Button Name="ExportAseButton"
-              Content="Ase"
-              HorizontalContentAlignment="Center"
-              Click="ExportAseButton_OnClick"
-              Margin="6"
-              Width="60"
-              HorizontalAlignment="Left"
-              DockPanel.Dock="Left" />
-      <Button Name="ExportGplButton"
-              Content="Gpl"
-              HorizontalContentAlignment="Center"
-              Click="ExportGplButton_OnClick"
-              Margin="6"
-              Width="60"
-              HorizontalAlignment="Left"
-              DockPanel.Dock="Left" />
-      <Button Name="ExportHexButton"
-              Content="Hex"
-              HorizontalContentAlignment="Center"
-              Click="ExportHexButton_OnClick"
-              Margin="6"
-              Width="60"
-              HorizontalAlignment="Left"
-              DockPanel.Dock="Left" />
-      <Button Name="ExportCsvButton"
-              Content="Csv"
-              HorizontalContentAlignment="Center"
-              Click="ExportCsvButton_OnClick"
-              Margin="6"
-              Width="60"
-              HorizontalAlignment="Left"
-              DockPanel.Dock="Left" />
-    </DockPanel>
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
-                  VerticalScrollBarVisibility="Auto"
-                  Margin="6"
-                  Grid.Row="1"
-                  Grid.Column="0">
-      <ItemsControl Name="ColorsItemsControl">
-        <ItemsControl.ItemTemplate>
-          <DataTemplate>
-            <DockPanel>
-              <TextBox Text="{Binding}"
-                       HorizontalAlignment="Center"
-                       BorderThickness="0"
-                       DockPanel.Dock="Bottom" />
-              <Border BorderBrush="Black" 
-                      BorderThickness="1"
-                      Margin="4">
-                <Rectangle Fill="{Binding}" />
-              </Border>
-            </DockPanel>
-          </DataTemplate>
-        </ItemsControl.ItemTemplate>
-        <ItemsControl.ItemsPanel>
-          <ItemsPanelTemplate>
-            <WrapPanel ItemWidth="96" ItemHeight="128" />
-          </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
-      </ItemsControl>
-    </ScrollViewer>
-    <Image Name="SourceImage"
-           Stretch="Uniform"
-           StretchDirection="Both"
-           Margin="6"
-           Grid.Row="1"
-           Grid.Column="1" />
-  </Grid>
+  <local:MainView />
 </Window>
